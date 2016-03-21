@@ -1,0 +1,1 @@
+upload files and import sql.txt in binary mode to phpmyadmin

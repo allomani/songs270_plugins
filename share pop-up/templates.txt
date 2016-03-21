@@ -1,0 +1,9 @@
+--------- browse_songs -------------
+print" <td align=center width=5%><a href=\"javascript:share($data[id]);\"><img src='images/share.gif' alt='ãÔÇÑßÉ' border=0></a></td>";
+
+
+-------------------- js functions -----------
+function share(id)
+{
+msgwindow=window.open("share.php?id="+id,"displaywindow","toolbar=no,scrollbars=no,width=500,height=400,top=200,left=200")
+}

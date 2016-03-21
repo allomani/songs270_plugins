@@ -1,0 +1,5 @@
+RewriteRule ^news_list_(.*)_(.*)_(.*).html index.php?action=news&cat=$1&date=$2&start=$3
+RewriteRule ^news_list_(.*).html index.php?action=news&cat=$1
+
+RewriteRule ^news_(.*).html index.php?action=news&id=$1
+RewriteRule ^news.html index.php?action=news

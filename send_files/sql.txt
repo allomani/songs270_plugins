@@ -1,0 +1,19 @@
+ALTER TABLE `songs_songs` ADD `userid` INT NOT NULL ;
+
+
+
+CREATE TABLE `members_files` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` text NOT NULL,
+  `url` text NOT NULL,
+  `date` datetime NOT NULL default '0000-00-00 00:00:00',
+  `cat` int(11) NOT NULL default '0',
+  `img` text NOT NULL,
+  `lyrics` text NOT NULL,
+  `details` text NOT NULL,
+  `userid` int(11) NOT NULL default '0',
+  `singer` int(11) NOT NULL default '0',
+  `album` int(11) NOT NULL default '0',
+  `filetype` text NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 ;

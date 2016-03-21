@@ -1,0 +1,33 @@
+CREATE TABLE `songs_dedications` (
+  `id` int(11) NOT NULL auto_increment,
+  `user` text NOT NULL,
+  `msg` text NOT NULL,
+  `date` datetime NOT NULL default '0000-00-00 00:00:00',
+  `color` text NOT NULL,
+  PRIMARY KEY  (`id`)
+) TYPE=MyISAM AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `songs_emotions`
+-- 
+
+CREATE TABLE `songs_emotions` (
+  `id` int(11) NOT NULL auto_increment,
+  `value` text NOT NULL,
+  `img` text NOT NULL,
+  PRIMARY KEY  (`id`)
+) TYPE=MyISAM AUTO_INCREMENT=8 ;
+
+-- 
+-- Dumping data for table `songs_emotions`
+-- 
+
+INSERT INTO `songs_emotions` (`id`, `value`, `img`) VALUES 
+(1, ':)', 'emoticons/01.gif'),
+(2, ';)', 'emoticons/02.gif'),
+(4, 'D)', 'emoticons/03.gif'),
+(5, ':-', 'emoticons/04.gif'),
+(6, '(cool)', 'emoticons/05.gif'),
+(7, '(cry)', 'emoticons/06.gif');

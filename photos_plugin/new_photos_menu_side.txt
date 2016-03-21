@@ -1,0 +1,11 @@
+<?
+
+$qr = db_query("select * from photos_data order by id DESC limit 8");
+
+  print "<marquee direction=up truespeed=1 onmouseover=stop(); onmouseout=start(); scrollamount=\"3\" scrolldelay=\"89\" height=\"150\">";
+
+ while($data=db_fetch($qr)){
+   print "<p align=center><a href='$data[img]'><img  width=80 height=100 src='".get_image($data['thumb'])."' border=0><br>$data[name]</a></p>";
+ }
+ print "</marquee>";
+?>

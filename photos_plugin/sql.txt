@@ -1,0 +1,60 @@
+CREATE TABLE `photos_cats` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` text NOT NULL,
+  `img` text NOT NULL,
+  `cat` int(11) NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) TYPE=MyISAM AUTO_INCREMENT=1 ;
+
+
+CREATE TABLE `photos_data` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` text NOT NULL,
+  `img` text NOT NULL,
+  `thumb` text NOT NULL,
+  `cat` int(11) NOT NULL default '0',
+  `date` datetime NOT NULL default '0000-00-00 00:00:00',
+  PRIMARY KEY  (`id`)
+) TYPE=MyISAM AUTO_INCREMENT=1 ;
+
+
+
+
+insert into songs_phrases_cats(id,name) values('photos','√·»Ê„ «·’Ê—');
+
+insert into songs_phrases (name,value,cat) values('err_no_photos','·«  ÊÃœ ’Ê—  Õ  Â–« «·ﬁ”„','photos');
+
+insert into songs_phrases (name,value,cat) values('photos_dir','œ·Ì· «·’Ê—','photos');
+
+insert into songs_phrases (name,value,cat) values('photos_add_limit','⁄œœ «÷«›… «·’Ê—','photos');
+
+insert into songs_phrases (name,value,cat) values('photos_thumb_width','⁄—÷ „’€—… «·’Ê—','photos');
+
+insert into songs_phrases (name,value,cat) values('photos_thumb_hieght','ÿÊ· „’€—… «·’Ê—','photos');
+
+insert into songs_phrases (name,value,cat) values('photos_perpage','⁄œœ «·’Ê— ›Ì «·’›Õ…','photos');
+
+insert into songs_phrases (name,value,cat) values('photos_cells','⁄œœ «⁄„œ… «·’Ê—','photos');
+
+insert into songs_phrases (name,value,cat) values('click_here_to_add_photos','«÷€ÿ Â‰« ·≈÷«›… «·’Ê—','photos');
+
+insert into songs_phrases (name,value,cat) values('photos_edit_comment',' ⁄œÌ· «· ⁄·Ìﬁ','photos');
+
+insert into songs_phrases (name,value,cat) values('photos_allowed_types','√‰Ê«⁄ «·’Ê— «·„”„ÊÕ »Â«','photos');
+
+insert into songs_phrases (name,value,cat) values('photos_the_comment','«· ⁄·Ìﬁ','photos');
+
+
+
+insert into songs_settings (name,value) values('photos_add_limit','20');
+
+insert into songs_settings (name,value) values('photos_thumb_width','100');
+
+insert into songs_settings (name,value) values('photos_thumb_hieght','100');
+
+insert into songs_settings (name,value) values('photos_perpage','30');
+
+insert into songs_settings (name,value) values('photos_cells','3');
+
+
+

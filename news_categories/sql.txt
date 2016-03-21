@@ -1,0 +1,13 @@
+CREATE TABLE `songs_news_cats` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` text NOT NULL,
+ `img` text NOT NULL,
+  `cat` int(11) NOT NULL default '0',
+`views` int(11) NOT NULL default '0',
+  `template` int(11) NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) TYPE=MyISAM AUTO_INCREMENT=2 ;
+
+
+ALTER TABLE `songs_news` ADD `cat` INT NOT NULL 
+ALTER TABLE  `songs_news` ADD  `views` INT NOT NULL

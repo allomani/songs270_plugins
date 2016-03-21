@@ -1,0 +1,19 @@
+in "browse_songs" template
+
+replace 
+
+global $data,$data_comment,$data_singer,$op,$settings,$phrases,$lyrics_count,$action,$is_user_cp,$urls_sets,$urls_data,$songs_fields_sets;
+
+with 
+
+
+global $data,$data_comment,$data_singer,$op,$settings,$phrases,$lyrics_count,$action,$is_user_cp,$urls_sets,$urls_data,$songs_fields_sets,$scripturl;
+
+--------------------------------------------------------------
+
+and at the last and before ?> , add the following code
+
+
+
+print" <td align=center width=5%><a href='http://www.facebook.com/sharer.php?u=".urlencode($scripturl."/".get_template('links_song_listen',array('{cat}','{id}'),array(1,$data['id'])))."' target=_blank><img src='images/facebook.gif' alt='Share with Facebook' border=0></a></td>";
+

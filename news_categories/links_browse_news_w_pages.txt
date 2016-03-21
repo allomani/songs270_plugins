@@ -1,0 +1,1 @@
+news_list_{cat}_{date}_{start}.html

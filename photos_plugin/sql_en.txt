@@ -1,0 +1,60 @@
+CREATE TABLE `photos_cats` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` text NOT NULL,
+  `img` text NOT NULL,
+  `cat` int(11) NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) TYPE=MyISAM AUTO_INCREMENT=1 ;
+
+
+CREATE TABLE `photos_data` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` text NOT NULL,
+  `img` text NOT NULL,
+  `thumb` text NOT NULL,
+  `cat` int(11) NOT NULL default '0',
+  `date` datetime NOT NULL default '0000-00-00 00:00:00',
+  PRIMARY KEY  (`id`)
+) TYPE=MyISAM AUTO_INCREMENT=1 ;
+
+
+
+
+insert into songs_phrases_cats(id,name) values('photos','Photo Album');
+
+insert into songs_phrases (name,value,cat) values('err_no_photos','No Photos','photos');
+
+insert into songs_phrases (name,value,cat) values('photos_dir','Photo Album','photos');
+
+insert into songs_phrases (name,value,cat) values('photos_add_limit','Photos Add Limit','photos');
+
+insert into songs_phrases (name,value,cat) values('photos_thumb_width','Photos Thumb Width','photos');
+
+insert into songs_phrases (name,value,cat) values('photos_thumb_hieght','Photos Thumb Height','photos');
+
+insert into songs_phrases (name,value,cat) values('photos_perpage','Photos Perpage','photos');
+
+insert into songs_phrases (name,value,cat) values('photos_cells','Photos Cells','photos');
+
+insert into songs_phrases (name,value,cat) values('click_here_to_add_photos','Click Here to Add Photos','photos');
+
+insert into songs_phrases (name,value,cat) values('photos_edit_comment','Edit Comment','photos');
+
+insert into songs_phrases (name,value,cat) values('photos_allowed_types','Photos Allowed Types','photos');
+
+insert into songs_phrases (name,value,cat) values('photos_the_comment','Comment','photos');
+
+
+
+insert into songs_settings (name,value) values('photos_add_limit','20');
+
+insert into songs_settings (name,value) values('photos_thumb_width','100');
+
+insert into songs_settings (name,value) values('photos_thumb_hieght','100');
+
+insert into songs_settings (name,value) values('photos_perpage','30');
+
+insert into songs_settings (name,value) values('photos_cells','3');
+
+
+

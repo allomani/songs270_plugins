@@ -1,0 +1,5 @@
+<?
+$actions_checks["ÇÖÇÝÉ ãáÝ"] = 'send_file' ;  
+if($action=="send_file"){
+$title_sub = "ÇÖÇÝÉ ãáÝ";
+}

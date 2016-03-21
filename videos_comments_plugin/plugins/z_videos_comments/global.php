@@ -1,0 +1,3 @@
+<?
+$permissions_checks["ÊÚáíÞÇÊ ÇáßáíÈÇÊ"]  = "videos_comments" ;
+?>

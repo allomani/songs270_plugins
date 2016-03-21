@@ -1,0 +1,147 @@
+ //------------------------------------- News -----------------------------------
+  if($action == "news")
+          {
+  compile_hook('news_start');
+
+if ($id){
+    compile_hook('news_inside_start');
+              $qr = db_query("select * from songs_news where id='$id'");
+              if(db_num($qr)){
+                  
+                  db_query("update songs_news set views=views+1 where id='$id'");
+                  
+              $data = db_fetch($qr);
+  
+  $dir_data['cat'] = intval($data['cat']) ;
+while($dir_data['cat']!=0){
+   $dir_data = db_qr_fetch("select name,id,cat from songs_news_cats where id='$dir_data[cat]'");
+
+
+        $dir_content = "<a href='news_list_$dir_data[id].html'>$dir_data[name]</a> / ". $dir_content  ;
+
+        }
+   print "<p align=right><img src='images/link.gif'> <a href='news_list_0.html'>«·—∆Ì”Ì… </a> / $dir_content " . "<b>$data[name]</b></p>";
+
+     $data_template  = db_qr_fetch("select template from songs_news_cats where id='$data[cat]'");
+
+      open_table($data['title'],$data_template['template']);
+     compile_template(get_template('browse_news_inside'));
+     close_table($data_template['template']);
+     }else{
+     open_table('',$data_template['template']);
+     print "<center>$phrases[err_wrong_url]</center>";
+     close_table($data_template['template']);
+             }
+   compile_hook('news_inside_end');
+        }else{
+
+  compile_hook('news_outside_start');
+
+          $cat = intval($cat);
+
+    $dir_data['cat'] = intval($cat) ;
+while($dir_data['cat']!=0){
+   $dir_data = db_qr_fetch("select name,id,cat from songs_news_cats where id='$dir_data[cat]'");
+
+
+        $dir_content = "<a href='news_list_$dir_data[id].html'>$dir_data[name]</a> / ". $dir_content  ;
+
+        }
+   print "<p align=right><img src='images/link.gif'> <a href='news_list_0.html'>«·—∆Ì”Ì… </a> / $dir_content " . "<b>$data[name]</b></p>";
+
+
+
+   $data_template  = db_qr_fetch("select template from songs_news_cats where id='$cat'");
+  //---------- show cats  --------------------- //
+
+         $qr_cats = db_query("select * from songs_news_cats where cat='$cat'");
+           if(db_num($qr_cats)){
+                open_table("",$data_template['template']);
+                $c=0;
+                 print "<center><table width=100%>" ;
+                while($data_cats = db_fetch($qr_cats)){
+                        ++$c ;
+
+if ($c=='5') {
+print "  </tr><TR>" ;
+$c = 1 ;
+}
+
+print " <td><center><a href='news_list_$data_cats[id].html'>
+            <img border=0 src='".get_image($data_cats['img'],"images/folder.gif")."'>
+<br>$data_cats[name] </a>
+
+
+ </center>    </td>";
+                        }
+                           print "</tr></table></center>";
+                        close_table($data_template['template']);
+                }else{
+                        $no_cats = 1 ;
+                        }
+
+                //---------- end cats -------------- //
+                
+          $qr = db_query("select left(date,7) as date from songs_news where cat='$cat' group by left(date,7)");
+          if(db_num($qr) > 1){
+          open_table('',$data_template['template']);
+          print "<form action=index.php>
+          <input type=hidden name=action value='news'>
+           $phrases[the_date] : <select name=date>
+           <option value=''> $phrases[all] </option>";
+          while($data = db_fetch($qr)){
+          if($date == $data['date']){$chk="selected" ;}else{$chk="";}
+
+                  print "<option value='$data[date]' $chk>$data[date]</option>";
+                  }
+                  print "</select>&nbsp;<input type=submit value=' $phrases[view_do] '></form>";
+                  close_table($data_template['template']);
+                  }
+    compile_hook('news_outside_after_date');
+           //----------------- start pages system ----------------------
+    $start=intval($start);
+    if(!$date){$date=0;}
+       $page_string= get_template('links_browse_news_w_pages',array('{date}','{cat}'),array($date,$cat));
+         $news_perpage = intval($settings['news_perpage']);
+        //--------------------------------------------------------------
+
+
+  
+          
+            if($date){
+            $qr = db_query("select * from songs_news where date like '".db_clean_string($date)."%' and cat='$cat' order by id DESC limit $start,$news_perpage");
+            $page_result = db_qr_fetch("SELECT count(*) as count from songs_news where date like '$date%' and cat='$cat'");
+            }else{
+             $qr = db_query("select * from songs_news where cat='$cat' order by id DESC limit $start,$news_perpage");
+            $page_result = db_qr_fetch("SELECT count(*) as count from songs_news where cat='$cat'");
+            }
+
+$numrows=$page_result['count'];
+
+
+  if(db_num($qr)){
+        open_table("$phrases[the_news_archive]",$data_template['template']); 
+            print "<hr class=separate_line size=\"1\">";
+            while ($data = db_fetch($qr)){
+  
+   compile_template(get_template('browse_news'));
+       print "<hr class=separate_line size=\"1\">" ;
+                    }
+        close_table($data_template['template']);                
+     }else{
+         if($no_cats){
+             open_table('',$data_template['template']); 
+             print "<center>$phrases[no_news]</center>" ;
+              close_table($data_template['template']); 
+         }
+             }
+           
+compile_hook('news_outside_before_pages');
+//-------------------- pages system ------------------------
+print_pages_links($start,$numrows,$news_perpage,$page_string);
+//------------ end pages system -------------
+
+compile_hook('news_outside_end');
+ }
+   compile_hook('news_end');
+                  }

@@ -1,0 +1,4 @@
+<?
+$actions_checks["ÓÌá ÇáÒæÇÑ"] = 'guestbook' ;
+$permissions_checks["ÓÌá ÇáÒæÇÑ"]  = "guestbook" ;
+?>

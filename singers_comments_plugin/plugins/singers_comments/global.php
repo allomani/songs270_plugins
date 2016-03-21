@@ -1,0 +1,3 @@
+<?
+$permissions_checks["ÊÚáíÞÇÊ ÇáãÛäííä"]  = "singers_comments" ;
+?>

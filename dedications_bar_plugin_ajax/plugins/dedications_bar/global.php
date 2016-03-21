@@ -1,0 +1,3 @@
+<?
+$permissions_checks["ÇáÇåÏÇÆÇÊ"]  = "dedications" ;
+?>

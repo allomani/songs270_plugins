@@ -1,0 +1,3 @@
+<?
+$permissions_checks["ÊÚáíÞÇÊ ÇáÃÎÈÇÑ"]  = "news_comments" ;
+?>

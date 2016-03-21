@@ -1,0 +1,24 @@
+<?
+global $settings,$phrases;
+
+$qr = db_query("select * from photos_data order by id desc limit 9");
+    print "<center><table width=100%>" ;
+    $c=0;
+        while($data = db_fetch($qr)){
+
+
+
+if ($c==$settings['songs_cells']) {
+print "  </tr><TR>" ;
+$c = 0 ;
+}
+    ++$c ;
+print " <td><center><a href='$data[img]' target=_blank>
+            <img border=0 alt='$phrases[add_date] : ".substr($data['date'],0,10)."'
+            src='".get_image($data['thumb'])."'>
+             </a><br>$data[name]";
+
+ print "</center>    </td>";
+           }
+
+           print "</tr></table></center>";

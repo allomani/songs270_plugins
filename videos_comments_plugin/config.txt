@@ -1,0 +1,1 @@
+$auto_activate_videos_comments = 1;
